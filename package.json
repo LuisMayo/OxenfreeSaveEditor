@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --aot",
+    "deploy": "ng build --aot --prod --base-href 'https://luismayo.github.io/OxenfreeSaveEditor/' && ngh",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
