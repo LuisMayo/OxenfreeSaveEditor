@@ -37,7 +37,6 @@ export class AppComponent {
     }
 
     convertObjectIntoStructure(obj: Object) {
-        debugger;
         for (const prop of Object.keys(obj)) {
             if (typeof obj[prop] === 'object' && !Array.isArray(obj[prop])) { // It is an object
                 this.convertObjectIntoStructure(obj[prop]);
