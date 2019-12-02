@@ -1,0 +1,16 @@
+<div style="padding-left: 15px;" *ngFor="let key of getObjectKeys(obj)">
+    <!-- aaaaa
+    {{key}}
+    {{obj[key]}}
+    {{isObject(obj[key])}}
+    {{isArray(obj[key])}} -->
+    <div>
+        {{key}}
+    </div>
+    <app-generic-object-editor *ngIf="isObject(obj[key]); else checkArray" [obj]="obj[key]"></app-generic-object-editor>
+    <ng-template #checkArray *ngIf="isArray(obj[key]); else checkGlobalVar">ARRAY HERE!</ng-template>
+    <ng-template #checkGlobalVar *ngIf="key === 'GlobalVariables'; else standardVar">Todo make global var edition</ng-template>
+    <ng-template #standardVar>
+        <input type="text" disabled [(ngModel)]="key"/><input type="text" [(ngModel)]="obj[key]"/>
+    </ng-template>
+</div>

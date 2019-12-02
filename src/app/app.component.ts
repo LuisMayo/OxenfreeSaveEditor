@@ -19,7 +19,7 @@ export class AppComponent {
         fr.addEventListener('load', () => {
             this.textFile = <string>fr.result;
             this.parseSaveGameIntoObject();
-            this.parseObjectIntoSaveGame();
+            // this.parseObjectIntoSaveGame();
         });
         fr.readAsText((<HTMLInputElement>event.target).files[0]);
     }

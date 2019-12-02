@@ -1,2 +1,2 @@
-<input type="file" accept=".nts" (change)="onLoad($event)"/>
-{{saveFile | json}}
+<input type="file" accept=".nts" (change)="onLoad($event)" /><br/>
+<app-generic-object-editor *ngIf="saveFile" [obj]="saveFile"></app-generic-object-editor>

@@ -1,14 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { GenericObjectEditorComponent } from './generic-object-editor/generic-object-editor.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GenericObjectEditorComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
