@@ -8,9 +8,9 @@
         {{key}}
     </div>
     <app-generic-object-editor *ngIf="isObject(obj[key]); else checkArray" [obj]="obj[key]"></app-generic-object-editor>
-    <ng-template #checkArray *ngIf="isArray(obj[key]); else checkGlobalVar">ARRAY HERE!</ng-template>
-    <ng-template #checkGlobalVar *ngIf="key === 'GlobalVariables'; else standardVar">Todo make global var edition</ng-template>
+    <ng-template #checkArray><div *ngIf="isArray(obj[key]); else checkGlobalVar">ARRAY HERE!</div></ng-template>
+    <ng-template #checkGlobalVar><div *ngIf="key === 'GlobalVariables'; else standardVar">Todo make global var edition</div></ng-template>
     <ng-template #standardVar>
-        <input type="text" disabled [(ngModel)]="key"/><input type="text" [(ngModel)]="obj[key]"/>
+        <input type="text" disabled [ngModel]="key"/><input type="text" [(ngModel)]="obj[key]"/>
     </ng-template>
 </div>
