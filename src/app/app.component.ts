@@ -17,7 +17,7 @@ export class AppComponent {
     onLoad(event: Event) {
         const fr = new FileReader();
         fr.addEventListener('load', () => {
-            this.textFile = <string>fr.result;
+            this.textFile = <string> fr.result;
             this.parseSaveGameIntoObject();
             // this.parseObjectIntoSaveGame();
         });
@@ -25,9 +25,11 @@ export class AppComponent {
     }
 
 
-    private parseSaveGameIntoObject() {
-        this.ommitedPart = this.textFile.substring(this.textFile.indexOf(',"CollectedNotes"'));
-        this.textFile = this.textFile.substring(0, this.textFile.indexOf(',"CollectedNotes"')) + '}'; // We don't know how to process Addler's notes yet
+    private parseSaveGameIntoObject(cropAddler = true) {
+        if (cropAddler) {
+            this.ommitedPart = this.textFile.substring(this.textFile.indexOf(',"CollectedNotes"'));
+            this.textFile = this.textFile.substring(0, this.textFile.indexOf(',"CollectedNotes"')) + '}'; // We don't know how to process Addler's notes yet
+        }
         this.saveFile = JSON.parse(this.textFile);
         this.convertStructureIntoObject(this.saveFile);
     }
@@ -68,5 +70,13 @@ export class AppComponent {
 
     getObjectKeys(obj: Object) {
         return Object.keys(obj);
+    }
+
+    onSaveFile() {
+        this.parseObjectIntoSaveGame();
+        this.parseSaveGameIntoObject(false);
+        const file = new Blob([this.newFile], {type: 'text/plain;charset=utf-8'});
+        (<HTMLAnchorElement> document.getElementById('download')).href = URL.createObjectURL(file);
+        document.getElementById('download').click();
     }
 }
