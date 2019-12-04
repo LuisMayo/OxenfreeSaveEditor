@@ -1,4 +1,4 @@
 <input type="file" accept=".nts" (change)="onLoad($event)" /><br/>
-<!-- <app-generic-object-editor *ngIf="saveFile" [obj]="saveFile"></app-generic-object-editor> -->
+<app-generic-object-editor *ngIf="saveFile" [obj]="saveFile"></app-generic-object-editor>
 <div class="save-icon" (click)="onSaveFile()"><i class="far fa-save"></i></div>
 <a id="download" style="display: none;" download="oxenfree_default.nts"></a>
