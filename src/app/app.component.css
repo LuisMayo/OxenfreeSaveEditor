@@ -1,9 +1,9 @@
 .save-icon {
     position: fixed;
-    bottom: 64px;
-    right: 64px;
-    height: 128px;
-    width: 128px;
+    bottom: 32px;
+    right: 32px;
+    height: 64px;
+    width: 64px;
     background: darkcyan;
     border-radius: 50%;
     display: flex;
@@ -18,6 +18,6 @@
 
 .save-icon > .far {
     vertical-align: sub;
-    font-size: 64px;
+    font-size: 32px;
     color: black;
 }
